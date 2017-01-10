@@ -1,0 +1,43 @@
+Description: Fixed path in ksm-wrapper script
+ ksm-wrapper tried to search libksm_preload.so in /usr/bin, the error
+ message:
+ 
+  Could not find /usr/bin/libksm_preload.so. Have you compiled it with 'make'?
+ 
+ Now it just uses "libksm_preload.so" instead of "/usr/bin/libksm_preload.so".
+Author: Dmitry Yu Okunev <dyokunev@ut.mephi.ru>
+Forwarded: not-needed
+Last-Update: 2017-01-10
+
+--- ksm-preload-0.10.1.orig/scripts/ksm-wrapper
++++ ksm-preload-0.10.1/scripts/ksm-wrapper
+@@ -1,10 +1,13 @@
+ #!/bin/sh
+-# Runs the provided executable with ksm-preload.so , which enables KSM
++# Runs the provided executable with ksm-preload.so, which enables KSM
+ # on heap-allocated memory.
+ 
+ # By Brice Arnould <unbrice@vleu.net>
+ # Copyright (C) 2011 Gandi SAS.
+ #
++# By Dmitry Yu Okunev <dyokunev@ut.mephi.ru>
++# Copyright (C) 2017
++#
+ # This program is free software: you can redistribute it and/or modify
+ # it under the terms of the GNU General Public License as published by
+ # the Free Software Foundation, either version 3 of the License, or
+@@ -18,13 +21,7 @@
+ # You should have received a copy of the GNU General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-readonly KSM_PATH=$(cd $(dirname $0) ; pwd)
+-readonly KSM_SO="${KSM_PATH}/libksm_preload.so"
+-
+-if [ ! -x "${KSM_SO}" ]; then
+-    echo "Could not find ${KSM_SO}. Have you compiled it with 'make' ?"
+-    exit 1
+-fi
++readonly KSM_SO="libksm_preload.so"
+ 
+ export LD_PRELOAD="${LD_PRELOAD} ${KSM_SO}"
+ exec "$@"

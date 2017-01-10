@@ -1,0 +1,5 @@
+ksm-preload (0.10.1-1) unstable; urgency=medium
+
+  * Initial package
+
+ -- Dmitry Yu Okunev <dyokunev@ut.mephi.ru>  Tue, 10 Jan 2017 19:10:07 +0300

@@ -1,0 +1,21 @@
+Source: ksm-preload
+Section: admin
+Priority: optional
+Maintainer: Dmitry Yu Okunev <dyokunev@ut.mephi.ru>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.8
+Homepage: http://vleu.net/ksm_preload/
+#Vcs-Git: https://anonscm.debian.org/collab-maint/ksm-preload.git
+#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/ksm-preload.git
+
+Package: ksm-preload
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Enables legacy applications to leverage Linux's mem-dedup
+ Enables legacy applications to leverage Linux’s memory deduplication.
+ If you have multiple processes generating similar data (like multiple
+ applications serving different vhosts), this easy to use tool may
+ allow you to spare memory by deduplicating it. If two pages (that is
+ on, most systems, consecutive blocks of 4k) are identical, they will
+ be merged into a single page to reduce memory usage.
+

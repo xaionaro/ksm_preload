@@ -1,0 +1,16 @@
+Description: Fix path to install README file
+Author: Dmitry Yu Okunev <dyokunev@ut.mephi.ru>
+Forwarded: not-needed
+Last-Update: 2017-01-10
+
+--- ksm-preload-0.10.1.orig/configure.ac
++++ ksm-preload-0.10.1/configure.ac
+@@ -1,7 +1,7 @@
+ # Process this file with autoconf to produce a configure script.
+ 
+ AC_PREREQ([2.69])
+-AC_INIT([ksm_preload], [0.10], [https://github.com/unbrice/ksm_preload])
++AC_INIT([ksm-preload], [0.10], [https://github.com/unbrice/ksm_preload])
+ AM_INIT_AUTOMAKE([0.10 foreign])
+ #AC_CONFIG_SRCDIR([src/ksm_preload.c])
+ LT_PREREQ([2.2])
